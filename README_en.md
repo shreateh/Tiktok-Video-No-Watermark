@@ -1,138 +1,139 @@
-**简体中文 | [English](./README_en.md)**
+**[简体中文](./README.md) | English**
+
 
 # Tiktok-Video-No-Watermark
 
-Tiktok短视频去水印
+Tiktok Video Without Watermark
 
 
-近期将要支持的API
+Support
 
-+ [x] [视频去水印](#视频去水印)
++ [x] [Without Watermark](#WithoutWatermark)
 
-+ [x] [获取用户发布的视频](#获取用户发布的视频)
++ [x] [Get User Feed](#GetUserFeed)
 
-+ [x] [获取用户详情](#获取用户详情)
++ [x] [Get User Detail](#GetUserDetail)
 
-+ [x] [获取关注列表](#获取关注列表)
++ [x] [Get User Following](#GetUserFollowing)
 
-+ [x] [获取粉丝列表](#获取粉丝列表)
++ [x] [Get User Followers](#GetUserFollowers)
 
-+ [x] [获取音乐内视频列表](#获取音乐内视频列表)
++ [x] [Get Music Feed Videos](#GetMusicFeedVideos)
 
-+ [x] [获取音乐详情](#获取音乐详情)
++ [x] [Get Music Detail](#GetMusicDetail)
 
-+ [x] [获取国家代码列表](#获取国家代码列表)
++ [x] [Get Region Code](#GetRegionCode)
 
-+ [x] [获取任意国家热门视频](#获取任意国家热门视频)
++ [x] [Get Trending Videos By Region](#GetTrendingVideosByRegion)
 
-+ [x] [获取视频评论列表](#获取视频评论列表)
++ [x] [Get Video Comments](#GetVideoComments)
 
-+ [x] [获取评论回复列表](#获取评论回复列表)
++ [x] [Get Reply By Comment Id](#GetReplyByCommentId)
 
-+ [x] [获取用户喜欢的视频](#获取用户喜欢的视频)
++ [x] [Get User Liked](#GetUserLiked)
 
-+ [x] [搜索视频](#搜索视频)
++ [x] [Search Video By Keywords](#SearchVideoByKeywords)
 
-+ [ ] 获取任意国家热门标签
++ [ ] Get Trending Challenge By Region
 
-+ [ ] 通过标签获得视频列表
++ [ ] Get Videos By Challenge Id
 
-# 在线测试
+# Online Test
 
 [```https://www.tikwm.com/```](https://www.tikwm.com/)
 
-# 接口健康检查
+# Status
 
-每5分钟检测一次
+Test every 5 minutes
 
-[```https://www.tikwm.com/api/status```](https://www.tikwm.com/api/status) 
+[```https://www.tikwm.com/api/status```](https://www.tikwm.com/api/status)
 
 ## <a href="https://www.buymeacoffee.com/yi005" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-#### 如果它对你有帮助，请支持一个star
+#### If it helps you, please support a star
 
-# 更新日志
+# update log
 
-2021.12.25 更新
-+ 增加 [搜索视频](#搜索视频) 接口
+2021.12.25 update
++ add [Search Video By Keywords](#SearchVideoByKeywords)
 
-2021.12.24 更新
-+ 增加 HD视频(高比特率)，在 [视频去水印](#视频去水印) 接口
+2021.12.24 update
++ add HD Video(High bit rate), in [Without Watermark](#WithoutWatermark) `data.hdplay` fields
 
-2021.12.23 更新
-+ 为防止滥用，api日请求限额 20000/天
-+ 增加 [获取用户喜欢的视频](#获取用户喜欢的视频) 接口
-+ 增加 [获取视频评论列表](#获取视频评论列表) 接口
-+ 增加 [获取评论回复列表](#获取评论回复列表) 接口
-+ [视频去水印](#视频去水印) 增加 id 字段
+2021.12.23 update
++ api Limit 20000 req/day
++ add [Get User Liked](#GetUserLiked)
++ add [Get Video Comments](#GetVideoComments)
++ add [Get Reply By Comment Id](#GetReplyByCommentId)
++ [Search Video By Keywords](#SearchVideoByKeywords) add `id` feild
 
-2021.12.20 更新
-+ 增加 [获取音乐详情](#获取音乐详情) 接口
-+ 增加 [获取任意国家热门视频](#获取任意国家热门视频) 接口
-+ 增加 [获取国家代码列表](#获取国家代码列表) 接口
+2021.12.20 update
++ add [Get Music Detail](#GetMusicDetail)
++ add [Get Trending Videos By Region](#GetTrendingVideosByRegion)
++ add [Get Region Code](#GetRegionCode)
 
-2021.12.17 更新
-+ 增加 music_info 字段 音乐详情
-+ 增加 [获取音乐内视频列表](#获取音乐内视频列表) 接口
+2021.12.17 update
++ add `music_info` field
++ add [Get Music Feed Videos](#GetMusicFeedVideos)
 
-2021.12.16 更新
-+ 增加 [获取关注列表](#获取关注列表) 接口
-+ 增加 [获取粉丝列表](#获取粉丝列表) 接口
+2021.12.16 update
++ add [Get User Following](#GetUserFollowing)
++ add [Get User Followers](#GetUserFollowers)
 
-2021.12.15 更新
-+ 增加 [获取用户详情](#获取用户详情) 接口
-+ 增加 video_id 字段 ([获取用户发布的视频](#获取用户发布的视频))
+2021.12.15 update
++ add [Get User Detail](#GetUserDetail)
++ add `video_id` ([Get User Feed](#GetUserFeed))
 
-2021.12.14 更新
+2021.12.14 update
 
-+ 增加 [获取用户发布的视频](#获取用户发布的视频) 接口 限制 1请求/10 秒([查看付费API](https://rapidapi.com/yi005/api/tiktok-video-no-watermark2/))
++ add [Get User Feed](#GetUserFeed) limit 1 req/ 10 sec([Paid Plan](https://rapidapi.com/yi005/api/tiktok-video-no-watermark2/))
 
-2021.12.09 更新
+2021.12.09 update
 
-+ 修改 请求参数 plat 可空 默认值为tik
-+ 支持 GET | POST 如果传入相同的key, POST将覆盖GET参数
-+ 更简便的请求方式 如 ```https://www.tikwm.com/api/?url=6996665911927262466```
-+ 优化 ```https://vt.tiktok.com/XXXXXX``` 类型链接的查询速度
-+ 免费接口限制 1请求/秒 ([查看付费API](https://rapidapi.com/yi005/api/tiktok-video-no-watermark2/))
++ modify Request params `plat` default tik
++ api support method GET | POST
++ optimization request ```https://www.tikwm.com/api/?url=6996665911927262466```
++ optimization ```https://vt.tiktok.com/XXXXXX``` query time
++ free api limit 1 req/sec ([Paid Plan](https://rapidapi.com/yi005/api/tiktok-video-no-watermark2/))
 
-2021.12.06 更新
+2021.12.06 update
 
-+ 增加 nickname 用户昵称
++ add `nickname`
 
-2021.12.03 更新
+2021.12.03 update
 
-+ 增加 region 国家代码
-+ 增加 origin_cover 静态封面
-+ 增加 play_count 播放量
-+ 增加 digg_count 红心量
-+ 增加 comment_count 评论量
-+ 增加 create_time 视频创建时间
-+ 增加 author
-    + unique_id 用户名
-    + avatar 头像
++ add `region`
++ add `origin_cover`
++ add `play_count`
++ add `digg_count`
++ add `comment_count`
++ add `create_time`
++ add `author`
+    + `unique_id`
+    + `avatar`
 
-2021.12.01 更新
+2021.12.01 update
 
-+ 增加 music 音乐MP3
++ add `music`
 
-# 视频去水印
+# WithoutWatermark
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/```
+### api: ```https://www.tikwm.com/api/```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-url - 短视频地址 支持（6996665911927262466 | https://vt.tiktok.com/XXXXXX | https://www.tiktok.com/@umay_874/video/6996665911927262466）等多种链接格式
+url - TT Link support (6996665911927262466 | https://vt.tiktok.com/XXXXXX | https://www.tiktok.com/@umay_874/video/6996665911927262466)
 
-hd - 默认0 传入1为获取高清视频(会增加总请求时间)
+hd - default 0  input 1 get HD Videos(This will increase the total request time)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -162,24 +163,24 @@ hd - 默认0 传入1为获取高清视频(会增加总请求时间)
 
 </details>
 
-# 获取用户发布的视频
+# GetUserFeed
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/user/posts```
+### api: ```https://www.tikwm.com/api/user/posts```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-unique_id - 例 @mineodesu69 
-count - 10 (最小1 最大35) 获取数量
-cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+unique_id - demo: @mineodesu69 
+count - 10 (1 < count < 35)
+cursor - 0 (hasMore is True, input cursor load more)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -215,22 +216,22 @@ cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多
 </details>
 
 
-# 获取用户详情
+# GetUserDetail
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/user/info```
+### api: ```https://www.tikwm.com/api/user/info```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-unique_id - 例 @mineodesu69 
+unique_id - demo: @mineodesu69 
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -275,24 +276,24 @@ unique_id - 例 @mineodesu69
 
 </details>
 
-# 获取关注列表
+# GetUserFollowing
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/user/following```
+### api: ```https://www.tikwm.com/api/user/following```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-user_id - 例 6943972350728700930
-count - 1 ~ 200 默认 50
-time -  hasMore为真时，传入time加载下一页内容
+user_id - demo: 6943972350728700930
+count - 1 ~ 200  default 50
+time -  hasMore is true, input time load more.
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -357,24 +358,24 @@ time -  hasMore为真时，传入time加载下一页内容
 
 </details>
 
-# 获取粉丝列表
+# GetUserFollowers
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/user/followers```
+### api: ```https://www.tikwm.com/api/user/followers```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-user_id - 例 6943972350728700930
-count - 1 ~ 200 默认 50
-time -  hasMore为真时，传入time加载下一页内容
+user_id - demo 6943972350728700930
+count - 1 ~ 200 default 50
+time -  hasMore is true, input time load more.
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -440,24 +441,24 @@ time -  hasMore为真时，传入time加载下一页内容
 </details>
 
 
-# 获取音乐内视频列表
+# GetMusicFeedVideos
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/music/posts```
+### api: ```https://www.tikwm.com/api/music/posts```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-music_id - 音乐id (music_info.id) 例 6788770563495185158
-count - 10 (最小1 最大35) 获取数量
-cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+music_id - music id (music_info.id) demo: 6788770563495185158
+count - 10 (1 ~ 35)
+cursor - 0 (hasMore is true, input cursor load more)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -530,22 +531,22 @@ cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多
 
 </details>
 
-# 获取音乐详情
+# GetMusicDetail
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/music/info```
+### api: ```https://www.tikwm.com/api/music/info```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-url - 音乐地址 支持（6788770563495185158 | https://vm.tiktok.com/xxxxxx/ | https://www.tiktok.com/music/originalljud-6788770563495185158）等多种链接格式
+url - TT Music Url. Support(6788770563495185158 | https://vm.tiktok.com/xxxxxx/ | https://www.tiktok.com/music/originalljud-6788770563495185158)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -567,22 +568,22 @@ url - 音乐地址 支持（6788770563495185158 | https://vm.tiktok.com/xxxxxx/ 
 </details>
 
 
-# 获取国家代码列表
+# GetRegionCode
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/region```
+### api: ```https://www.tikwm.com/api/region```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-无
+none
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -601,23 +602,23 @@ url - 音乐地址 支持（6788770563495185158 | https://vm.tiktok.com/xxxxxx/ 
 </details>
 
 
-# 获取任意国家热门视频
+# GetTrendingVideosByRegion
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/feed/list```
+### api: ```https://www.tikwm.com/api/feed/list```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-region - 地区代码 如(JP TW US)
-count - 数量 1 ~ 20 默认10 (实际获取数量可能会比count少，因地区而异)
+region - demo: JP | TW | US
+count - 1 ~ 20 default 10 (The actual quantity obtained may be small, which varies by region)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -717,26 +718,24 @@ count - 数量 1 ~ 20 默认10 (实际获取数量可能会比count少，因地�
 </details>
 
 
-# 获取视频评论列表
+# GetVideoComments
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/comment/list```
+### api: ```https://www.tikwm.com/api/comment/list```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-url - 可以传入视频id or 链接 or 短链等
-count - 数量 1 ~ 50 默认20
-cursor - 传入上次请求返回的cursor加载下一页，默认0
+url - id | TT Link | Short Link
+count - 1 ~ 50 default 20
+cursor - hasMore is true, input cursor load more
 ```
 
-### 返回结果：Json
-
-#### reply_total代表该评论的回复数
+### response: Json
 
 ```json
 {
@@ -779,24 +778,24 @@ cursor - 传入上次请求返回的cursor加载下一页，默认0
 
 
 
-# 获取评论回复列表
+# GetReplyByCommentId
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/comment/reply```
+### api: ```https://www.tikwm.com/api/comment/reply```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-comment_id - 评论id
-count - 数量 1 ~ 50 默认20
-cursor - 传入上次请求返回的cursor加载下一页，默认0
+comment_id
+count - 1 ~ 50 default 20
+cursor - hasMore is true, input cursor load more
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -836,24 +835,24 @@ cursor - 传入上次请求返回的cursor加载下一页，默认0
 
 </details>
 
-# 获取用户喜欢的视频
+# GetUserLiked
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/user/favorite```
+### api: ```https://www.tikwm.com/api/user/favorite```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-unique_id - 例 @mineodesu69 
-count - 10 (最小1 最大35) 获取数量
-cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+unique_id - demo: @mineodesu69 
+count - 10 (1 ~ 35)
+cursor - 0 (hasMore is true, input cursor load more)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
@@ -899,24 +898,24 @@ cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多
 </details>
 
 
-# 搜索视频
+# SearchVideoByKeywords
 
 <details>
-<summary>点击查看</summary>
+<summary>Details</summary>
 
-### 接口地址：```https://www.tikwm.com/api/feed/search```
+### api: ```https://www.tikwm.com/api/feed/search```
 
-### 请求方式：```get|post```
+### method: ```get|post```
 
-### 参数
+### request params
 
 ```
-keywords - 例 踊ってみた
-count - 10 (最小1 最大30) 获取数量
-cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+keywords - demo: 踊ってみた
+count - 10 (1 ~ 30)
+cursor - 0 (hasMore is true, input cursor load more)
 ```
 
-### 返回结果：Json
+### response: Json
 
 ```json
 {
