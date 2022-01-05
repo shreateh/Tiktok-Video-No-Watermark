@@ -34,11 +34,11 @@ Support
 
 + [x] [Search Video By Keywords](#SearchVideoByKeywords)
 
-+ [x] [Search Challenge(hashTag)](#SearchChallenge(hashTag))
++ [x] [Search Challenge(hashTag)](#SearchChallengehashTag)
 
-+ [x] [Get Challenge(hashTag) Detail](#GetChallenge(hashTag)Detail)
++ [x] [Get Challenge(hashTag) Detail](#GetChallengehashTagDetail)
 
-+ [x] [Get Challenge(hashTag) Feed](#GetChallenge(hashTag)Feed)
++ [x] [Get Challenge(hashTag) Feed](#GetChallengehashTagFeed)
 
 + [ ] Get Trending Challenge By Region
 
