@@ -9,6 +9,54 @@
 
 
 /**
+ * Get Video List By Challenge(HashTag)
+ * limit 1 req/ 10 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/posts';
+$challengeId = '5932';
+$postData = [
+    'challenge_id' => $challengeId,
+    'count' => 10,
+    'cursor' => 0
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Get Challenge(HashTag) Detail
+ * limit 1 req/ 1 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/info';
+$challengeId = '5932';
+$challengeName = 'girl';
+$postData = [
+    'challenge_id' => $challengeId,    //challenge_id or challenge_name must require
+    //'challenge_name' => $challengeName,
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Search Challenge(HashTag) By Keywords
+ * limit 1 req/ 10 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/search';
+$keywords = 'girl';
+$postData = [
+    'keywords' => $keywords,
+    'count' => 10,
+    'cursor' => 0
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
  * Search Videos By Keywords
  * limit 1 req/ 10 sec
  */

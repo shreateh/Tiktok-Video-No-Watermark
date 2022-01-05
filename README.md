@@ -33,9 +33,13 @@ Tiktok短视频去水印
 
 + [x] [搜索视频](#搜索视频)
 
-+ [ ] 获取任意国家热门标签
++ [x] [搜索挑战(标签)](#搜索挑战(标签))
 
-+ [ ] 通过标签获得视频列表
++ [x] [获取挑战(标签)详情](#获取挑战(标签)详情)
+
++ [x] [获取挑战(标签)视频列表](#获取挑战(标签)视频列表)
+
++ [ ] 获取任意国家热门标签
 
 # 在线测试
 
@@ -52,6 +56,11 @@ Tiktok短视频去水印
 #### 如果它对你有帮助，请支持一个star
 
 # 更新日志
+
+2022.01.05 更新
++ 增加 [搜索挑战(标签)](#搜索挑战(标签)) 接口
++ 增加 [获取挑战(标签)详情](#获取挑战(标签)详情) 接口
++ 增加 [获取挑战(标签)视频列表](#获取挑战(标签)视频列表) 接口
 
 2021.12.25 更新
 + 增加 [搜索视频](#搜索视频) 接口
@@ -961,3 +970,233 @@ cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多
 
 </details>
 
+
+# 搜索挑战(标签)
+
+<details>
+<summary>点击查看</summary>
+
+### 接口地址：```https://www.tikwm.com/api/challenge/search```
+
+### 请求方式：```get|post```
+
+### 参数
+
+```
+keywords - 例 girl
+count - 10 (最小1 最大30) 获取数量
+cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+```
+
+### 返回结果：Json
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "challenge_list": [{
+      "id": "5932",
+      "cha_name": "girl",
+      "desc": "",
+      "user_count": 11045675,
+      "view_count": 75264379409,
+      "is_pgcshow": false,
+      "is_commerce": false,
+      "is_challenge": false,
+      "is_strong_music": false,
+      "type": 2,
+      "cover": ""
+    }, {
+      "id": "59274",
+      "cha_name": "hotgirl",
+      "desc": "",
+      "user_count": 386828,
+      "view_count": 5305983314,
+      "is_pgcshow": false,
+      "is_commerce": false,
+      "is_challenge": false,
+      "is_strong_music": false,
+      "type": 1,
+      "cover": ""
+    }, {
+      "id": "560200",
+      "cha_name": "bikinigirl",
+      "desc": "",
+      "user_count": 20018,
+      "view_count": 984545642,
+      "is_pgcshow": false,
+      "is_commerce": false,
+      "is_challenge": false,
+      "is_strong_music": false,
+      "type": 1,
+      "cover": ""
+    }],
+    "cursor": 3,
+    "hasMore": true
+  }
+}
+```
+
+</details>
+
+# 获取挑战(标签)详情
+
+<details>
+<summary>点击查看</summary>
+
+### 接口地址：```https://www.tikwm.com/api/challenge/info```
+
+### 请求方式：```get|post```
+
+### 参数
+
+```
+challenge_id - 例 5932 
+challenge_name - 例 girl 
+```
+
+### 返回结果：Json
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "id": "5932",
+    "cha_name": "girl",
+    "desc": "",
+    "user_count": 11045671,
+    "view_count": 75264559481,
+    "is_pgcshow": false,
+    "is_commerce": false,
+    "is_challenge": false,
+    "is_strong_music": false,
+    "type": 2,
+    "cover": ""
+  }
+}
+```
+
+</details>
+
+
+# 获取挑战(标签)视频列表
+
+<details>
+<summary>点击查看</summary>
+
+### 接口地址：```https://www.tikwm.com/api/challenge/posts```
+
+### 请求方式：```get|post```
+
+### 参数
+
+```
+challenge_id - 例 5932 
+count - 10 (最小1 最大30) 获取数量
+cursor - 0 (hasMore为true时，可传入上次请求返回的cursor加载更多)
+```
+
+### 返回结果：Json
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "videos": [{
+      "video_id": "6903138515253497089",
+      "region": "BR",
+      "title": "#confidence #beauty #body #bully #hate #kindness #girl #animation #animação #engraçado #funny #fyp #foryoupage #paravoce #foryou #paravocê BY BLUEZOO",
+      "cover": "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/4e3e186d97434fa9bc68ea08faba4d46_1607262190?x-expires=1641373200&x-signature=%2FH5rEa6raC6SDvDDbEfpkTNI1ac%3D",
+      "origin_cover": "https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/1223c4cb78584b7ba1509bf440fc53d0_1607262188~tplv-tiktokx-360p.jpeg?x-expires=1641373200&x-signature=Er4QTwRcsf%2BnQhzGCGs7GdrlCH0%3D",
+      "play": "https://v16m-default.akamaized.net/814884ce348e4597741a09c8072fee5d/61d568f9/video/tos/alisg/tos-alisg-pve-0037c001/78819e9e6e6942d59ddd320e1886bef7/?a=0&br=1608&bt=804&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3l2b2lya21neTMzaDczM0ApM2Y8Ojo0OTw6N2loNzQzPGc1Ni9jNDNeczNfLS0yMTRzc2MyMGIvNi9hNmFhXzAyYl86Yw%3D%3D&vl=&vr=",
+      "wmplay": "https://v16m-default.akamaized.net/92ae7453fab18f4879f6ecb83bafdaf5/61d568f9/video/tos/alisg/tos-alisg-pve-0037c001/05b91ae0c6ca46b6a63edadf13ada70f/?a=0&br=1750&bt=875&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3l2b2lya21neTMzaDczM0ApaDg3aWZnaWU3NzlpZWU4Z2c1Ni9jNDNeczNfLS0yMTRzc15gNWIzLi1iNjY0MDBfNjI6Yw%3D%3D&vl=&vr=",
+      "music": "https://sf16-sg-default.akamaized.net/obj/tiktok-obj/6903138665610939138.mp3",
+      "music_info": {
+        "id": "6903138694685920002",
+        "title": "original sound - Illustration Candy",
+        "play": "https://sf16-sg-default.akamaized.net/obj/tiktok-obj/6903138665610939138.mp3",
+        "cover": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/265066ea61d7a08de12511559f037955~c5_1080x1080.webp?x-expires=1641438000&x-signature=5S9q7Ihh5EO1ALyE5uJxOynBjtI%3D",
+        "author": "Illustration Candy",
+        "original": true,
+        "duration": 58,
+        "album": ""
+      },
+      "play_count": 46179804,
+      "digg_count": 9180341,
+      "comment_count": 47647,
+      "create_time": 1607262185,
+      "author": {
+        "id": "6833146616305550342",
+        "unique_id": "illustrationcandy",
+        "nickname": "Illustration Candy",
+        "avatar": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/265066ea61d7a08de12511559f037955~c5_300x300.webp?x-expires=1641438000&x-signature=p9Wv5z2vYK1Lh91fr9%2By7xQY5vw%3D"
+      }
+    }, {
+      "video_id": "7023803446197292334",
+      "region": "US",
+      "title": "The results will shock you🤣🤣🤣 #zombie #halloween #halloweenlook #halloweenishere #zombies #beauty #women #girl #viral #makeup #amazing #fyp",
+      "cover": "https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/aa984f4d6c4e414dafba64dd34741434_1635356684?x-expires=1641373200&x-signature=2IvpwldHqpzRUwT9T18XemmtjbM%3D",
+      "origin_cover": "https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/677f85b3b5354a999b657c37382d2bcd_1635356684~tplv-tiktokx-360p.jpeg?x-expires=1641373200&x-signature=RgwedFs6g0y2jZgHmaIj97EKZss%3D",
+      "play": "https://v16m-default.akamaized.net/bc27bc66a1607f161a2a84a5880e76d7/61d568f1/video/tos/useast5/tos-useast5-pve-0068-tx/5618dc88267f48dca150d0e5d04e7811/?a=0&br=448&bt=224&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=am1zdzQ6ZnJyODMzZzczNEApaTU7ZWc1Nzw0Nzo6Z2Q0aWdtbC4tcjRfcnBgLS1kMS9zczEvLy0yMWFhNTUvYmIyXjM6Yw%3D%3D&vl=&vr=",
+      "wmplay": "https://v16m-default.akamaized.net/2675425fc35f4a84ea27664c2d6255cf/61d568f1/video/tos/useast5/tos-useast5-ve-0068c004-tx/489a6ec220674f5aa4080112bc8b5669/?a=0&br=648&bt=324&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=am1zdzQ6ZnJyODMzZzczNEApOjxmZDllNWQ6NzxpZmlnOWdtbC4tcjRfcnBgLS1kMS9zc2NgMDNgYV9fMi4wNV8uYS06Yw%3D%3D&vl=&vr=",
+      "music": "https://sf16-sg-default.akamaized.net/obj/tos-alisg-ve-2774/7318acd719bc42a68eb69a1f34c10201",
+      "music_info": {
+        "id": "6704977837100632066",
+        "title": "House of Memories",
+        "play": "https://sf16-sg-default.akamaized.net/obj/tos-alisg-ve-2774/7318acd719bc42a68eb69a1f34c10201",
+        "cover": "https://p16-sg-default.akamaized.net/aweme/720x720/tos-alisg-v-2774/ba36284f65324036a082458026f66a97.jpeg",
+        "author": "",
+        "original": false,
+        "duration": 60,
+        "album": "Death of a Bachelor"
+      },
+      "play_count": 74674120,
+      "digg_count": 6454403,
+      "comment_count": 51258,
+      "create_time": 1635356683,
+      "author": {
+        "id": "7003035073880556550",
+        "unique_id": "howitworking",
+        "nickname": "howitworking",
+        "avatar": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e46c29a4cb618a5934df0707ec3305e2~c5_300x300.webp?x-expires=1641438000&x-signature=atBP7zLkzXgoZ3XZ%2Bp6uhDhXwNw%3D"
+      }
+    }, {
+      "video_id": "6964490620589067525",
+      "region": "US",
+      "title": "#fyp accurate representation of me playing soccer in high school. 🧍🏽‍♀️⚽️ #fyp #sport #girl #soccer #hit #hair #bench",
+      "cover": "https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/46caf53571174a5d8dde53b2047f0d39_1621546840?x-expires=1641373200&x-signature=IEHS92luad8Ap51KcKNdHYQ6vmg%3D",
+      "origin_cover": "https://p16-sign-va.tiktokcdn.com/tos-maliva-p-0068/525606b85f154f91a91e393380d8aec4_1621546840~tplv-tiktokx-360p.image?x-expires=1641373200&x-signature=jxIOKODo2%2BxIVlJt1FE6UkEBFmI%3D",
+      "play": "https://v16m-default.akamaized.net/1c3c0dc4669b0638dfba577aab812288/61d56902/video/tos/useast2a/tos-useast2a-pve-0068/a459bee936244df0a498f6cdc611f632/?a=0&br=2320&bt=1160&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anBkd2VkbmxnNTMzNzczM0ApPDg6NDY3NDxlNzVpPDhnaWdqLzM0LWQtYWdgLS1kMTZzc2EvXjEtMzBgMmJiMmAyNi06Yw%3D%3D&vl=&vr=",
+      "wmplay": "https://v16m-default.akamaized.net/a4fa0746a7c551a051ab0e00ee5c3c1d/61d56902/video/tos/useast2a/tos-useast2a-pve-0068/302ea269fd0a4389a75cc9b1ef95694b/?a=0&br=2454&bt=1227&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=w.1R0FaWkag3-I&l=202201050345340102450400691D03EF07&lr=all&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anBkd2VkbmxnNTMzNzczM0ApNWQ4Ojc0PDw5Nzo3ZTY5N2dqLzM0LWQtYWdgLS1kMTZzczUuLV81NDViMmMyL2FfYTE6Yw%3D%3D&vl=&vr=",
+      "music": "https://p16-va-default.akamaized.net/obj/musically-maliva-obj/6964490636234361606.mp3",
+      "music_info": {
+        "id": "6964490489051941638",
+        "title": "original sound - Emillee",
+        "play": "https://p16-va-default.akamaized.net/obj/musically-maliva-obj/6964490636234361606.mp3",
+        "cover": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0bc2395bbb595eb22414a16ee6a0fa55~c5_1080x1080.webp?x-expires=1641438000&x-signature=6u0FiCwJswd9sSH%2F9JhjI8u2iqY%3D",
+        "author": "Emillee",
+        "original": true,
+        "duration": 68,
+        "album": ""
+      },
+      "play_count": 20954285,
+      "digg_count": 5721639,
+      "comment_count": 24702,
+      "create_time": 1621546837,
+      "author": {
+        "id": "6734345033501819909",
+        "unique_id": "peachypollo",
+        "nickname": "Emillee",
+        "avatar": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0bc2395bbb595eb22414a16ee6a0fa55~c5_300x300.webp?x-expires=1641438000&x-signature=wCG1smQrwGz1gupNScbw6YfYeYU%3D"
+      }
+    }],
+    "cursor": 3,
+    "hasMore": true
+  }
+}
+```
+
+</details>
