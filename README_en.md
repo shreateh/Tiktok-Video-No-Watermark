@@ -58,6 +58,8 @@ Test every 5 minutes
 #### If it helps you, please support a star
 
 # update log
+2022.01.13 update
++ Api Limit 2000 req/day
 
 2022.01.05 update
 + add [Search Challenge(hashTag)](#SearchChallenge(hashTag))
