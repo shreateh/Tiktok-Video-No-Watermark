@@ -58,6 +58,9 @@ Test every 5 minutes
 #### If it helps you, please support a star
 
 # update log
+2022.03.15 update
++ [Without Watermark](#WithoutWatermark) support Douyin videos without watermark
+
 2022.01.13 update
 + Api Limit 2000 req/day
 

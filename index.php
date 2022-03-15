@@ -246,6 +246,8 @@ var_dump($obj);
  * https://vt.tiktok.com/ZSey5hMUR/
  * https://www.tiktok.com/@umay_874/video/6996665911927262466
  * 6996665911927262466
+ * https://v.douyin.com/Nkyec7r/
+ * https://www.douyin.com/video/7042267828258393357
  *
  **/
 $api = 'https://www.tikwm.com/api/';
