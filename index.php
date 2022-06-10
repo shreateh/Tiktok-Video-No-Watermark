@@ -9,6 +9,24 @@
 
 
 /**
+ * Get Similar Users
+ * limit 1 req/ 10 sec
+ * unique_id or user_id
+ * count max 50
+ */
+$api = 'https://www.tikwm.com/api/user/discover';
+$unique_id = 'ovaksss';
+$postData = [
+    'unique_id' => $unique_id,
+    //'user_id' => '6958992391789577217',
+    'count' => 10,
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
  * Get Video List By Challenge(HashTag)
  * limit 1 req/ 10 sec
  */

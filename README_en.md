@@ -40,6 +40,8 @@ Support
 
 + [x] [Get Challenge(hashTag) Feed](#GetChallengehashTagFeed)
 
++ [x] [Get Similar Users](#GetSimilarUsers)
+
 + [ ] Get Trending Challenge By Region
 
 
@@ -58,6 +60,9 @@ Test every 5 minutes
 #### If it helps you, please support a star
 
 # update log
+2022.06.10 更新
++ add [Get Similar Users](#GetSimilarUsers) 
+
 2022.03.15 update
 + [Without Watermark](#WithoutWatermark) support Douyin videos without watermark
 
@@ -1202,6 +1207,133 @@ cursor - 0 (hasMore is true, input cursor load more)
     "cursor": 3,
     "hasMore": true
   }
+}
+```
+
+</details>
+
+# GetSimilarUsers
+
+<details>
+<summary>Detail</summary>
+
+### api：```https://www.tikwm.com/api/user/discover```
+
+### method：```get|post```
+
+### request params
+
+```
+unique_id - Example @ovaksss 
+```
+
+### response：Json
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "processed_time": 0.3581,
+  "data": [{
+    "user": {
+      "id": "6958992391789577217",
+      "shortId": "",
+      "uniqueId": "xz.audio",
+      "nickname": "✨ オーディオ ✨",
+      "avatarLarger": "https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/10dddc2d9da7ee8dc7c6217287540319.jpeg?x-expires=1655031600&x-signature=D5MrHPfQSNJE%2FPUQ8%2BipTwt4jMA%3D",
+      "avatarMedium": "https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/10dddc2d9da7ee8dc7c6217287540319.jpeg?x-expires=1655031600&x-signature=uOS1UKpMq892Xg2aGs9kAtuRNig%3D",
+      "avatarThumb": "https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/10dddc2d9da7ee8dc7c6217287540319.jpeg?x-expires=1655031600&x-signature=yKRtSUpn6kV3HcipVeO1FYpKeDw%3D",
+      "signature": "Hi 💓\n⬆️Реклама в Директ⬆️ ^^\n\n⬇️My telegram channel⬇️\n⬇️Полные треки⬇️",
+      "verified": false,
+      "secUid": "MS4wLjABAAAAwFUy_CqWCz6Gi1ng6Dk790b5uWPkhCCx6FAd_RRZgydbOS59p1TBDYu6_a6IQ13M",
+      "ftc": false,
+      "relation": 0,
+      "openFavorite": false,
+      "commentSetting": 0,
+      "duetSetting": 0,
+      "stitchSetting": 0,
+      "privateAccount": false,
+      "secret": false,
+      "isADVirtual": false,
+      "roomId": "",
+      "ttSeller": false
+    },
+    "stats": {
+      "followerCount": 1100000,
+      "followingCount": 14,
+      "heart": 15500000,
+      "heartCount": 15500000,
+      "videoCount": 108,
+      "diggCount": 45900
+    },
+    "itemList": []
+  }, {
+    "user": {
+      "id": "6621429828086235137",
+      "shortId": "",
+      "uniqueId": "efron_and_bass",
+      "nickname": "Efron",
+      "avatarLarger": "https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/134a70d37ee7eaeb6534171f40cdb404.jpeg?x-expires=1655031600&x-signature=S%2FJ8lBtKL4rkBE8OxBKxFngT4og%3D",
+      "avatarMedium": "https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/134a70d37ee7eaeb6534171f40cdb404.jpeg?x-expires=1655031600&x-signature=MdwDdgQjs8CZEUP3TflX25DBR74%3D",
+      "avatarThumb": "https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/134a70d37ee7eaeb6534171f40cdb404.jpeg?x-expires=1655031600&x-signature=qBQ%2F2sqzuXA03ZlnEjbOg5GBvMI%3D",
+      "signature": "",
+      "verified": false,
+      "secUid": "MS4wLjABAAAAUajZYzsgntyev2QdS35QdBCVIOMI-T6L-mz5SD83T08rlnNazVhen0K9OEvSqjTq",
+      "ftc": false,
+      "relation": 0,
+      "openFavorite": true,
+      "commentSetting": 0,
+      "duetSetting": 0,
+      "stitchSetting": 0,
+      "privateAccount": false,
+      "secret": false,
+      "isADVirtual": false,
+      "roomId": "",
+      "ttSeller": false
+    },
+    "stats": {
+      "followerCount": 135400,
+      "followingCount": 146,
+      "heart": 1700000,
+      "heartCount": 1700000,
+      "videoCount": 326,
+      "diggCount": 13100
+    },
+    "itemList": []
+  }, {
+    "user": {
+      "id": "6851883819194237958",
+      "shortId": "",
+      "uniqueId": "_danilgoncharov_",
+      "nickname": "Данил Гончаров",
+      "avatarLarger": "https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/6892292461432209414~c5_1080x1080.jpeg?x-expires=1655031600&x-signature=u9skjyAx8vyL5gWshlEKfNPLoM0%3D",
+      "avatarMedium": "https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/6892292461432209414~c5_720x720.jpeg?x-expires=1655031600&x-signature=qD4SjnBeybJMhiXmI69KTxr2Uss%3D",
+      "avatarThumb": "https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/6892292461432209414~c5_100x100.jpeg?x-expires=1655031600&x-signature=QKTuAp4Cpyrbln72BERQuGBM8Hg%3D",
+      "signature": "",
+      "verified": false,
+      "secUid": "MS4wLjABAAAA675s6pAe_MtskMRixNIjxFPXsybA1XMlvZWvTv_Uvk0k0OCI7i5ntK0IbKCE4amY",
+      "ftc": false,
+      "relation": 0,
+      "openFavorite": false,
+      "commentSetting": 0,
+      "duetSetting": 0,
+      "stitchSetting": 0,
+      "privateAccount": false,
+      "secret": false,
+      "isADVirtual": false,
+      "roomId": "",
+      "ttSeller": false
+    },
+    "stats": {
+      "followerCount": 6360,
+      "followingCount": 47,
+      "heart": 612000,
+      "heartCount": 612000,
+      "videoCount": 210,
+      "diggCount": 2770
+    },
+    "itemList": []
+  }]
 }
 ```
 
