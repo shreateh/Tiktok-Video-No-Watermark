@@ -9,6 +9,28 @@
 
 
 /**
+ * Signature X-Argus, X-Ladon, X-Gorgon, X-Khronos
+ * Method: POST
+ * limit 1 req/ 1 sec
+ * params
+ * headers
+ */
+
+//https://api.tiktokv.com/aweme/v1/user/profile/other/?user_id=107955&os_api=25&device_type=A5010&manifest_version_code=250906&app_name=musically_go&version_name=25.9.6&app_type=normal&channel=googleplay&update_version_code=250906&device_platform=android&build_number=25.9.6&version_code=250906&app_language=en&device_brand=OnePlus&os_version=7.1.2&aid=1340&iid=7127540981901510406&device_id=7127539617850918405
+$http_query = 'user_id=107955&os_api=25&device_type=A5010&manifest_version_code=250906&app_name=musically_go&version_name=25.9.6&app_type=normal&channel=googleplay&update_version_code=250906&device_platform=android&build_number=25.9.6&version_code=250906&app_language=en&device_brand=OnePlus&os_version=7.1.2&aid=1340&iid=7127540981901510406&device_id=7127539617850918405';
+
+$api = 'https://www.tikwm.com/api/service/sign';
+$postData = [
+    'params' => $http_query,
+    'headers' => '{"user-agent":"okhttp/3.10.0.1"}',
+];
+
+$response = curl_request($api, $postData);
+$obj = json_decode($response);
+var_dump($obj);
+
+
+/**
  * Get Similar Users
  * limit 1 req/ 10 sec
  * unique_id or user_id
@@ -257,7 +279,6 @@ $obj = json_decode($response);
 var_dump($obj);
 
 
-
 /**
  * Without Watermark
  * support Links
@@ -289,8 +310,10 @@ function curl_request($url, $postData = [])
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_HEADER, false);
-    //curl_setopt($curl, CURLOPT_POST, true);
-    //curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    if ($postData) {
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    }
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);

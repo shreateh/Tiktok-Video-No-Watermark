@@ -8,6 +8,8 @@ Tiktok Video Without Watermark
 
 Support
 
++ [x] [X-Argus,X-Ladon Signature](#ApiSignature)
+
 + [x] [Without Watermark](#WithoutWatermark)
 
 + [x] [Get User Feed](#GetUserFeed)
@@ -60,7 +62,10 @@ Test every 5 minutes
 #### If it helps you, please support a star
 
 # update log
-2022.06.10 更新
+2022.08.03 update
++ add [X-Argus,X-Ladon Signature](#ApiSignature)
+
+2022.06.10 update
 + add [Get Similar Users](#GetSimilarUsers) 
 
 2022.03.15 update
@@ -1334,6 +1339,40 @@ unique_id - Example @ovaksss
     },
     "itemList": []
   }]
+}
+```
+
+</details>
+
+# ApiSignature
+
+<details>
+<summary>Detail</summary>
+
+### api：```https://www.tikwm.com/api/service/sign```
+
+### method：```post```
+
+### request params
+
+```
+params - Example user_id=107955&os_api=25&device_type=A5010&manifest_version_code=250906&app_name=musically_go&version_name=25.9.6&app_type=normal&channel=googleplay&update_version_code=250906&device_platform=android&build_number=25.9.6&version_code=250906&app_language=en&device_brand=OnePlus&os_version=7.1.2&aid=1340&iid=7127540981901510406&device_id=7127539617850918405
+headers - Example {"user-agent":"okhttp/3.10.0.1"}
+```
+
+### response：Json
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "processed_time": 0.1861,
+  "data": {
+    "X-Argus": "x/JDlgQfFaqD4LDzEaTc02VxClawQWTQDjEkJJyc500nKW7efEdDDSupZ1j8grQcP7u9ciqVWO++TqkZrDp6G6TRJ6W3Du0UPJwKBgAPvVZeR+aJu992afpmIwpEehpUYFfjS11NAcfuz1Ts4VgEyQmxWuKVYE1vQI6J96FI7aCibdHjL0DuU6pmis7h+gi/zmHhA2jzcrkHOZuIiR4ute7/3SckNgVn+sZSVsPqrf+bWg==",
+    "X-Gorgon": "040460bb000089995280e59cb71def7569792929ac219011ea4c",
+    "X-Khronos": "1659518338",
+    "X-Ladon": "vvBDYNbM94auKvbgp9EJt5+IJE2YFs5sbhiO1FCdViy+pVAo"
+  }
 }
 ```
 
