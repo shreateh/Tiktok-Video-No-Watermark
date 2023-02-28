@@ -1,15 +1,104 @@
 <?php
 /**
- * Tiktok短视频去水印
+ * Tiktok Video No Watermark
+ * https://github.com/yi005/Tiktok-Video-No-Watermark
  * @Author yi005
  * @Date 2021.11.19
- * @Update 2021.12.23
+ * @Update 2021.12.29
  */
 
 
 /**
- * 搜索视频
- * 接口限制 1请求/10秒
+ * Signature X-Argus, X-Ladon, X-Gorgon, X-Khronos
+ * Method: POST
+ * limit 1 req/ 1 sec
+ * params
+ * headers
+ */
+
+//https://api.tiktokv.com/aweme/v1/user/profile/other/?user_id=107955&os_api=25&device_type=A5010&manifest_version_code=250906&app_name=musically_go&version_name=25.9.6&app_type=normal&channel=googleplay&update_version_code=250906&device_platform=android&build_number=25.9.6&version_code=250906&app_language=en&device_brand=OnePlus&os_version=7.1.2&aid=1340&iid=7127540981901510406&device_id=7127539617850918405
+$http_query = 'user_id=107955&os_api=25&device_type=A5010&manifest_version_code=250906&app_name=musically_go&version_name=25.9.6&app_type=normal&channel=googleplay&update_version_code=250906&device_platform=android&build_number=25.9.6&version_code=250906&app_language=en&device_brand=OnePlus&os_version=7.1.2&aid=1340&iid=7127540981901510406&device_id=7127539617850918405';
+
+$api = 'https://www.tikwm.com/api/service/sign';
+$postData = [
+    'params' => $http_query,
+    'headers' => '{"user-agent":"okhttp/3.10.0.1"}',
+];
+
+$response = curl_request($api, $postData);
+$obj = json_decode($response);
+var_dump($obj);
+
+
+/**
+ * Get Similar Users
+ * limit 1 req/ 10 sec
+ * unique_id or user_id
+ * count max 50
+ */
+$api = 'https://www.tikwm.com/api/user/discover';
+$unique_id = 'ovaksss';
+$postData = [
+    'unique_id' => $unique_id,
+    //'user_id' => '6958992391789577217',
+    'count' => 10,
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Get Video List By Challenge(HashTag)
+ * limit 1 req/ 10 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/posts';
+$challengeId = '5932';
+$postData = [
+    'challenge_id' => $challengeId,
+    'count' => 10,
+    'cursor' => 0
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Get Challenge(HashTag) Detail
+ * limit 1 req/ 1 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/info';
+$challengeId = '5932';
+$challengeName = 'girl';
+$postData = [
+    'challenge_id' => $challengeId,    //challenge_id or challenge_name must require
+    //'challenge_name' => $challengeName,
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Search Challenge(HashTag) By Keywords
+ * limit 1 req/ 10 sec
+ */
+$api = 'https://www.tikwm.com/api/challenge/search';
+$keywords = 'girl';
+$postData = [
+    'keywords' => $keywords,
+    'count' => 10,
+    'cursor' => 0
+];
+
+$response = curl_request($api . '?' . http_build_query($postData));
+$obj = json_decode($response);
+var_dump($obj);
+
+/**
+ * Search Videos By Keywords
+ * limit 1 req/ 10 sec
  */
 $api = 'https://www.tikwm.com/api/feed/search';
 $keywords = '踊ってみた';
@@ -24,8 +113,8 @@ $obj = json_decode($response);
 var_dump($obj);
 
 /**
- * 获取用户喜欢的视频
- * 接口限制 1请求/10秒
+ * Get User Liked
+ * limit 1 req/ 10 sec
  */
 $api = 'https://www.tikwm.com/api/user/favorite';
 $unique_id = '@mineodesu69';
@@ -41,7 +130,7 @@ var_dump($obj);
 
 
 /**
- * 获取评论的回复列表
+ * Get Reply By Comment Id
  *
  **/
 $api = 'https://www.tikwm.com/api/comment/list';
@@ -57,7 +146,7 @@ $obj = json_decode($response);
 var_dump($obj);
 
 /**
- * 获取视频的评论列表
+ * Get Video Comments
  * https://vt.tiktok.com/ZSey5hMUR/
  * https://www.tiktok.com/@moosethecane/video/7044204887571238149
  * 7044204887571238149
@@ -78,8 +167,8 @@ var_dump($obj);
 
 
 /**
- * 获取国家代码列表
- * 接口限制 无
+ * Get Region List
+ *
  */
 $api = 'https://www.tikwm.com/api/region';
 $api = 'https://www.tikwm.com/api/region';
@@ -89,9 +178,9 @@ var_dump($obj);
 
 
 /**
- * 获取任意国家热门视频列表
- * 接口限制 1请求/10秒
- * region 国家代码
+ * Get Trending Feed
+ * limit 1 req/ 10 sec
+ * region
  */
 $api = 'https://www.tikwm.com/api/feed/list';
 $postData = [
@@ -105,9 +194,9 @@ var_dump($obj);
 
 
 /**
- * 获取音乐详情
- * 接口限制 1请求/1秒
- * 支持多种格式
+ * Get Music Detail
+ * limit 1 req/sec
+ * support Links
  * 6788770563495185158
  * https://vm.tiktok.com/xxxxxx/
  * https://www.tiktok.com/music/originalljud-6788770563495185158
@@ -124,8 +213,8 @@ var_dump($obj);
 
 
 /**
- * 获取音乐内的视频
- * 接口限制 1请求/10秒
+ * Get Music Feed Videos
+ * limit 1 req/ 10 sec
  */
 $api = 'https://www.tikwm.com/api/music/posts';
 $music_id = '6919702697465678594';
@@ -140,8 +229,8 @@ $obj = json_decode($response);
 var_dump($obj);
 
 /**
- * 获取用户关注列表
- * 接口限制 1请求/1秒
+ * Get User Following
+ *
  */
 $api = 'https://www.tikwm.com/api/user/following';
 $user_id = '6943972350728700930';
@@ -157,8 +246,8 @@ var_dump($obj);
 
 
 /**
- * 获取用户粉丝列表
- * 接口限制 1请求/1秒
+ * Get User Followers
+ *
  */
 $api = 'https://www.tikwm.com/api/user/followers';
 $user_id = '6943972350728700930';
@@ -174,8 +263,8 @@ var_dump($obj);
 
 
 /**
- * 获取用户发布的视频
- * 接口限制 1请求/10秒
+ * Get User Feed Videos
+ * limit 1 req/ 10 sec
  */
 $api = 'https://www.tikwm.com/api/user/posts';
 $unique_id = '@mineodesu69';
@@ -190,25 +279,28 @@ $obj = json_decode($response);
 var_dump($obj);
 
 
-$api = 'https://www.tikwm.com/api/';
 /**
- * 支持多种格式
+ * Without Watermark
+ * support Links
  * https://vt.tiktok.com/ZSey5hMUR/
  * https://www.tiktok.com/@umay_874/video/6996665911927262466
  * 6996665911927262466
+ * https://v.douyin.com/Nkyec7r/
+ * https://www.douyin.com/video/7042267828258393357
  *
  **/
+$api = 'https://www.tikwm.com/api/';
 $tikUrl = 'https://www.tiktok.com/@umay_874/video/6996665911927262466';
 $postData = [
     'url' => $tikUrl,
-    'hd' => 0   //传入1 获取高比特率视频
+    'hd' => 0   //input 1, get HD Video
 ];
 
 $response = curl_request($api . '?' . http_build_query($postData));
 $obj = json_decode($response);
 
 if ($obj->code === 0) {
-    echo $obj->data->play;    //无水印视频
+    echo $obj->data->play;    //no watermark
 } else {
     echo $obj->msg;
 }
@@ -218,8 +310,10 @@ function curl_request($url, $postData = [])
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_HEADER, false);
-    //curl_setopt($curl, CURLOPT_POST, true);
-    //curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    if ($postData) {
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    }
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
